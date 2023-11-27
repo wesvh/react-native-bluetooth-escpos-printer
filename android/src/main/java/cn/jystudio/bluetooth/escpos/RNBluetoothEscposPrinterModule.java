@@ -21,16 +21,6 @@ import javax.annotation.Nullable;
 import java.nio.charset.Charset;
 import java.util.*;
 
-import com.zebra.sdk.comm.BluetoothConnection; // using zebra sdk for print functionality
-import com.zebra.sdk.comm.Connection;
-import com.zebra.sdk.printer.PrinterStatus;
-import com.zebra.sdk.comm.ConnectionException;
-import com.zebra.sdk.printer.PrinterLanguage;
-import com.zebra.sdk.printer.SGD;
-import com.zebra.sdk.printer.ZebraPrinter;
-import com.zebra.sdk.printer.ZebraPrinterFactory;
-import com.zebra.sdk.printer.discovery.DiscoveredPrinter;
-
 public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
         implements BluetoothServiceStateObserver {
     private static final String TAG = "BluetoothEscposPrinter";
@@ -136,19 +126,6 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
         }
     }
 
-    private byte[] getConfigLabel(String label) {
-        byte[] configLabel = null;
-        String printLabel = label;
-        try {
-            SGD.SET("device.languages", "zpl", mService);
-            configLabel = printLabel.getBytes();
-
-        } catch (ConnectionException e) {
-            Log.d("Connection err", e.toString());
-        }
-        return configLabel;
-    }
-
     @ReactMethod
     public void printText(String text, @Nullable ReadableMap options, boolean isZebra, final Promise promise) {
         try {
@@ -171,8 +148,7 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
             // }
             byte[] bytes = null;
             if (isZebra) {
-                SGD.GET("device.languages", mService);
-                bytes = getConfigLabel(toPrint);
+                bytes = printLabel.getBytes();
             } else {
                 bytes = PrinterCommand.POS_Print_Text(toPrint, encoding, codepage, widthTimes, heigthTimes, fonttype);
             }

@@ -1,7 +1,7 @@
 {
-  "name": "react-native-bluetooth-escpos-printer",
-  "version": "0.0.6",
-  "description": "React-Native plugin for the bluetooth ESC/POS printers.",
+  "name": "react-native-bluetooth-zebra-printer-qv",
+  "version": "0.0.7",
+  "description": "React-Native plugin for the bluetooth ESC/POS / Zebra printers.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,10 @@
     "Bluetooth",
     "Printer"
   ],
-  "author": "janus j k lu",
+  "authors": [
+    "janus j k lu",
+    "Esteban V. Wesvh"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.55.4"

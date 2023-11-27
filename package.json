@@ -20,5 +20,18 @@
   "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.55.4"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesvh/react-native-bluetooth-escpos-printer.git"
+  },
+  "author": "Wesvh",
+  "bugs": {
+    "url": "https://github.com/wesvh/react-native-bluetooth-escpos-printer/issues"
+  },
+  "homepage": "https://github.com/wesvh/react-native-bluetooth-escpos-printer#readme"
 }

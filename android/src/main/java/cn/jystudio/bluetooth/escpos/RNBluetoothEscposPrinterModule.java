@@ -148,7 +148,7 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
             // }
             byte[] bytes = null;
             if (isZebra) {
-                bytes = printLabel.getBytes();
+                bytes = toPrint.getBytes();
             } else {
                 bytes = PrinterCommand.POS_Print_Text(toPrint, encoding, codepage, widthTimes, heigthTimes, fonttype);
             }
